@@ -40,9 +40,9 @@ Will bundle your js dependencies into a single minified `bundle.js` file, move y
 
 **Moreover, it will create a `dist-zipped/project.zip` file which can be directly use to share your project**.
 
-# Develop your token
+# How to
 
-Once the environment is started, you can edit the `src/index.js` file to start building your artwork. The `index.html` file is located in the `public/` folder.
+Once the environment is started, you can edit the `src/index.js` file to start building your work. The `index.html` file is located in the `public/` folder.
 
 You can import libraries using `yarn` or by adding the library file in the `public/` folder and link those using relative paths in the `index.html`.
 
