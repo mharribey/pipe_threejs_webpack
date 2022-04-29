@@ -111,7 +111,6 @@ composer.addPass(new RenderPass(scene, camera));
 
 // composer.addPass(filmEffect); // exemple
 
-controls.update();
 function animate(dt) {
   composer.render();
 
