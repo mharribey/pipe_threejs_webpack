@@ -54,30 +54,17 @@ const textureCube = loaderCube.load( [
 ] );
 
 async function loadModels() {
-  // const glove = await modelLoader('/assets/models/glove/Gloves_TEST.gltf')
-  // glove.scene.scale.set(1, 1, 1)
-  // glove.scene.position.set(0,-10,0)
+  const ipod = await modelLoader('/assets/models/ipod/iPod.gltf')
+  ipod.scene.scale.set(0.015, 0.015, 0.015)
+  ipod.scene.position.set(-2, 1.1, 1)
+  ipod.scene.rotation.y = Math.PI
 
-  // glove.scene.traverse(function(el) {
-  //   if (el.type == 'Mesh') {
-  //     el.material.envMap = textureCube
-  //     el.material.envMapIntensity = 1
-  //   }
-  // })
-
-  /////////////////
-
-  // const ipod = await modelLoader('/assets/models/ipod/iPod.gltf')
-  // ipod.scene.scale.set(0.015, 0.015, 0.015)
-  // ipod.scene.position.set(-2, 1.1, 1)
-  // ipod.scene.rotation.y = Math.PI
-
-  // ipod.scene.traverse(function(el) {
-  //   if (el.type == 'Mesh') {
-  //     el.material.envMap = textureCube
-  //     el.material.envMapIntensity = 1
-  //   }
-  // })
+  ipod.scene.traverse(function(el) {
+    if (el.type == 'Mesh') {
+      el.material.envMap = textureCube
+      el.material.envMapIntensity = 1
+    }
+  })
 
   //////////////////
 
@@ -97,9 +84,8 @@ async function loadModels() {
 
   //////////////////
   
-  //platform.scene.add(ipod.scene)
+  platform.scene.add(ipod.scene)
   scene.add(platform.scene)
-  //scene.add(glove.scene)
 }
 
 // LIGHTS
