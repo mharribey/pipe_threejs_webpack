@@ -10,8 +10,6 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 import { FilmPass } from 'three/examples/jsm/postprocessing/FilmPass.js';
 import { SSAOPass } from 'three/examples/jsm/postprocessing/SSAOPass.js';
 
-import sprite from './sprite-animation'
-
 // HELPERS
 
 const loader = new GLTFLoader();
@@ -22,7 +20,6 @@ const modelLoader = (url) => {
 }
 
 // VARIABLES
-
 
 let mixer, clock
 clock = new THREE.Clock();
@@ -47,21 +44,6 @@ controls.maxDistance = 1500;
 controls.minDistance = 0;
 
 // MODELS
-
-const testMat = new THREE.MeshBasicMaterial({
-  transparent: true,
-  color: new THREE.Color('white'),
-})
-
-const textureLoader = new THREE.TextureLoader()
-const spriteTexture = textureLoader.loadAsync('assets/man.png')
-spriteTexture.then(el => {
-  const spriteAnim = sprite(el, 8, 8, 64, 10)
-  spriteAnim.start(-1)
-  testMat.map = spriteAnim.texture
-  testMat.needsUpdate = true
-})
-
 
 const loaderCube = new THREE.CubeTextureLoader();
 loaderCube.setPath( 'assets/textures/cube/' );
@@ -101,8 +83,9 @@ async function loadModels() {
   })
 
   const robot = await modelLoader('/assets/models/robot/Robot_Renaud.glb')
-  robot.scene.scale.set(5,5,5)
-  robot.scene.position.y = 2
+  robot.scene.scale.set(3,3,3)
+  robot.scene.position.y = 1
+  robot.scene.rotation.y = Math.PI / 2
   robot.scene.traverse(function(el) {
     if (el.type == 'Mesh') {
       el.material.envMap = textureCube
@@ -110,13 +93,10 @@ async function loadModels() {
     }
   })
 
-  const geometry = new THREE.BoxGeometry(2, 2, 2)
-  const cube = new THREE.Mesh(geometry, testMat)
 
   //////////////////
   
   scene.add(robot.scene)
-  //scene.add(cube)
   //platform.scene.add(ipod.scene)
   //scene.add(platform.scene)
 }
