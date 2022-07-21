@@ -100,10 +100,10 @@ async function loadModels() {
     }
   })
 
-  const gant = await modelLoader('/assets/models/EXPORT/Gloves_TEST.gltf')
-  gant.scene.scale.set(0.2,0.2,0.2)
-  gant.scene.position.y = -5
-  gant.scene.traverse(function(el) {
+  const robot = await modelLoader('/assets/models/robot/Robot_Renaud.glb')
+  robot.scene.scale.set(5,5,5)
+  robot.scene.position.y = 2
+  robot.scene.traverse(function(el) {
     if (el.type == 'Mesh') {
       el.material.envMap = textureCube
       el.material.envMapIntensity = 1
@@ -115,10 +115,10 @@ async function loadModels() {
 
   //////////////////
   
-  //scene.add(gant.scene)
+  scene.add(robot.scene)
   //scene.add(cube)
   //platform.scene.add(ipod.scene)
-  scene.add(platform.scene)
+  //scene.add(platform.scene)
 }
 
 // LIGHTS
