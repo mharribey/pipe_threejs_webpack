@@ -1,7 +1,7 @@
 body {
-  background-color: lightblue;
+  background-color: rgb(24, 25, 61);
   margin: 0;
-  
+
   /* leave it to hide the scrollbars */
   overflow: hidden;
 }

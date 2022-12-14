@@ -10,6 +10,7 @@
     "start": "webpack serve --config ./config/webpack.config.dev.js"
   },
   "dependencies": {
+    "gsap": "^3.11.3",
     "postprocessing": "^6.24.1",
     "three": "^0.138.2",
     "three-noise": "^1.1.2",
